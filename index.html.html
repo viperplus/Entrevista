@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Del Rural a la Antártida · Entrevista a Mara Schmid</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --azul-profundo: #0b1d3a;
+            --azul-noche: #0d2b52;
+            --azul: #1e6fc2;
+            --celeste: #53b6e8;
+            --hielo: #cdeefb;
+            --blanco: #ffffff;
+            --aurora1: #66f0c8;
+            --aurora2: #8ee7ff;
+            --sombra: 0 20px 50px rgba(11, 29, 58, 0.18);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            color: var(--azul-profundo);
+            background: #eef7fc;
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, .titulo-fuerte { font-family: 'Outfit', sans-serif; }
+
+        /* ====== NAV BAR ====== */
+        .nav-bar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+            background: rgba(11, 29, 58, 0.85); backdrop-filter: blur(10px);
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 12px 26px; color: var(--blanco);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+        }
+        .nav-logo { font-weight: 800; font-size: 1.1rem; font-family: 'Outfit', sans-serif; }
+        .nav-logo span { color: var(--aurora1); }
+        .nav-links { display: flex; gap: 22px; flex-wrap: wrap; }
+        .nav-links a {
+            color: var(--hielo); text-decoration: none; font-weight: 600; font-size: .88rem;
+            transition: color .2s ease;
+        }
+        .nav-links a:hover { color: var(--aurora1); }
+
+        /* ====== HERO ====== */
+        .hero {
+            position: relative; min-height: 100vh;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding: 120px 24px 60px; color: var(--blanco);
+            background: linear-gradient(160deg, #081838 0%, #0d2b52 45%, #14507e 100%);
+            overflow: hidden;
+        }
+        .aurora {
+            position: absolute; inset: 0; pointer-events: none;
+            background:
+                radial-gradient(60% 45% at 20% 80%, rgba(102,240,200,0.35), transparent 60%),
+                radial-gradient(55% 40% at 80% 75%, rgba(142,231,255,0.30), transparent 60%),
+                radial-gradient(50% 50% at 50% 20%, rgba(30,111,194,0.35), transparent 60%);
+            filter: blur(10px);
+            animation: auroraMove 14s ease-in-out infinite alternate;
+        }
+        @keyframes auroraMove {
+            0% { transform: translate(-2%, -2%) scale(1); opacity: .85; }
+            100% { transform: translate(2%, 2%) scale(1.15); opacity: 1; }
+        }
+        .stars {
+            position: absolute; inset: 0; pointer-events: none;
+            background-image:
+                radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+                radial-gradient(2px 2px at 120px 80px, #fff, transparent),
+                radial-gradient(1.5px 1.5px at 200px 150px, #fff, transparent),
+                radial-gradient(2px 2px at 300px 60px, #fff, transparent),
+                radial-gradient(1.5px 1.5px at 380px 200px, #fff, transparent),
+                radial-gradient(2px 2px at 60px 250px, #fff, transparent),
+                radial-gradient(1.5px 1.5px at 450px 30px, #fff, transparent),
+                radial-gradient(2px 2px at 500px 170px, #fff, transparent),
+                radial-gradient(1.5px 1.5px at 160px 320px, #fff, transparent),
+                radial-gradient(2px 2px at 550px 260px, #fff, transparent);
+            background-size: 600px 400px; animation: twinkle 6s ease-in-out infinite alternate; opacity: .8;
+        }
+        @keyframes twinkle { 0% { opacity: .5; } 100% { opacity: 1; } }
+        .nieve {
+            position: absolute; top: -10px; color: var(--blanco); font-size: 1.1em;
+            opacity: .75; animation: caer linear infinite; pointer-events: none;
+        }
+        @keyframes caer {
+            0% { transform: translateY(-40px); opacity: 0; }
+            10% { opacity: .9; } 90% { opacity: .6; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+        .badge {
+            position: relative; display: inline-flex; align-items: center; gap: 12px;
+            background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(6px); padding: 8px 22px 8px 10px; border-radius: 60px;
+            font-size: .82rem; letter-spacing: 2px; font-weight: 600; color: var(--hielo); margin-bottom: 24px;
+        }
+        .badge img {
+            width: 40px; height: 40px; border-radius: 50%; object-fit: cover;
+            border: 2px solid rgba(255,255,255,0.6); box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+        }
+        .hero h1 {
+            position: relative; font-size: clamp(2.2rem, 6.5vw, 4.6rem); font-weight: 800;
+            line-height: 1.08; color: var(--blanco); text-shadow: 0 4px 30px rgba(0,0,0,0.4);
+            max-width: 900px; margin-bottom: 18px;
+        }
+        .hero h1 span { color: var(--aurora1); }
+        .hero .sub {
+            position: relative; font-size: clamp(1.05rem, 2.2vw, 1.5rem); font-weight: 500;
+            color: var(--hielo); max-width: 760px; margin-bottom: 30px;
+        }
+        .hero .accion { position: relative; display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+        .btn {
+            font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1rem; padding: 16px 32px;
+            border-radius: 60px; border: none; cursor: pointer; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 10px;
+            transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+        }
+        .btn:hover { transform: translateY(-3px); }
+        .btn-primario { background: linear-gradient(135deg, var(--aurora1), var(--aurora2)); color: var(--azul-profundo); box-shadow: 0 12px 30px rgba(102,240,200,0.35); }
+        .btn-primario:hover { box-shadow: 0 18px 40px rgba(102,240,200,0.5); }
+        .btn-secundario { background: rgba(255,255,255,0.14); color: var(--blanco); border: 1px solid rgba(255,255,255,0.35); backdrop-filter: blur(6px); }
+        .scroll-hint { position: relative; margin-top: 44px; color: var(--hielo); font-size: .8rem; letter-spacing: 3px; opacity: .8; animation: bajar 2s ease-in-out infinite; }
+        @keyframes bajar { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+
+        /* ====== TARJETA DE TEMPERATURA ====== */
+        .temperatura {
+            position: relative; margin: 34px auto 0; display: flex; gap: 18px; align-items: center;
+            background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(8px); border-radius: 22px; padding: 18px 26px; max-width: 520px; width: 100%;
+            justify-content: center;
+        }
+        .temp-icono { font-size: 2.4rem; }
+        .temp-info { text-align: left; }
+        .temp-info .lugar { font-size: .78rem; letter-spacing: 2px; color: var(--hielo); opacity: .85; }
+        .temp-info .valor { font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 800; color: var(--blanco); line-height: 1; }
+        .temp-info .detalle { font-size: .82rem; color: var(--hielo); opacity: .85; margin-top: 3px; }
+        .temp-info .carga { color: var(--aurora1); font-size: .9rem; }
+
+        /* ====== SECCIONES ====== */
+        .seccion { padding: 90px 24px; max-width: 1100px; margin: 0 auto; }
+        .encabezado-seccion { text-align: center; margin-bottom: 48px; }
+        .encabezado-seccion .etiqueta {
+            display: inline-block; background: linear-gradient(135deg, var(--aurora1), var(--aurora2));
+            color: var(--azul-profundo); font-weight: 700; font-size: .8rem; letter-spacing: 2px;
+            padding: 6px 18px; border-radius: 30px; margin-bottom: 14px;
+        }
+        .encabezado-seccion h2 { font-size: clamp(1.7rem, 4vw, 2.6rem); color: var(--azul-profundo); }
+        .encabezado-seccion p { max-width: 720px; margin: 12px auto 0; color: #4a6b8a; font-size: 1.05rem; }
+
+        .aparece { opacity: 0; transform: translateY(40px); transition: opacity .7s ease, transform .7s ease; }
+        .aparece.visible { opacity: 1; transform: translateY(0); }
+
+        /* ====== GALERÍA & MAPA ====== */
+        .banner-base {
+            position: relative; margin: 8px 0 26px; border-radius: 26px; overflow: hidden;
+            box-shadow: var(--sombra); cursor: zoom-in;
+        }
+        .banner-base img { width: 100%; height: 300px; object-fit: cover; display: block; }
+        .banner-base figcaption {
+            position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 24px 14px;
+            background: linear-gradient(transparent, rgba(5,18,38,0.85));
+            color: var(--blanco); font-size: 1rem; font-weight: 600; letter-spacing: .4px;
+        }
+        .wrapper-fotos-mapa { display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; margin-top: 10px; }
+        .panel {
+            background: var(--blanco); border-radius: 26px; overflow: hidden;
+            box-shadow: var(--sombra);
+        }
+        .galeria { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 8px; background: var(--azul-noche); }
+        .foto { position: relative; overflow: hidden; border-radius: 10px; }
+        .foto img { width: 100%; height: 210px; object-fit: cover; display: block; transition: transform .4s ease; }
+        .galeria:hover img { transform: scale(1.03); }
+        .foto figcaption {
+            position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 12px 8px;
+            background: linear-gradient(transparent, rgba(5,18,38,0.85));
+            color: var(--blanco); font-size: .72rem; font-weight: 600; letter-spacing: .4px;
+        }
+        .panel-fotos-titulo { padding: 20px 24px; background: var(--blanco); }
+        .panel-fotos-titulo h3 { color: var(--azul); font-size: 1.2rem; margin-bottom: 6px; }
+        .panel-fotos-titulo p { color: #4a6b8a; font-size: .9rem; }
+        .mapa {
+            display: flex; flex-direction: column; height: 100%;
+        }
+        .mapa .mapa-titulo { padding: 20px 24px; background: var(--blanco); }
+        .mapa .mapa-titulo h3 { color: var(--azul); font-size: 1.15rem; margin-bottom: 6px; }
+        .mapa .mapa-titulo p { color: #4a6b8a; font-size: .88rem; }
+        .mapa iframe { width: 100%; flex: 1; min-height: 380px; border: none; display: block; }
+
+        .datos-clave {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 26px;
+        }
+        .dato {
+            background: var(--blanco); border-radius: 20px; padding: 20px; text-align: center;
+            box-shadow: 0 8px 24px rgba(11,29,58,0.07);
+        }
+        .dato .dato-numero { font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--azul); }
+        .dato .dato-label { font-size: .8rem; color: #4a6b8a; margin-top: 3px; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* ====== INTRO ====== */
+        .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; }
+        .intro-tarjeta {
+            background: var(--blanco); border-radius: 26px; padding: 36px;
+            box-shadow: 0 12px 40px rgba(11,29,58,0.12);
+            border-left: 5px solid var(--aurora1);
+        }
+        .intro-tarjeta .etiqueta {
+            display: inline-block; background: linear-gradient(135deg, var(--aurora1), var(--aurora2));
+            color: var(--azul-profundo); font-weight: 800; font-size: .85rem; letter-spacing: 2px;
+            padding: 7px 18px; border-radius: 30px; margin-bottom: 16px;
+        }
+        .intro-tarjeta h3 { font-size: 1.65rem; margin-bottom: 16px; color: var(--azul); font-weight: 800; }
+        .intro-tarjeta p { margin-bottom: 14px; color: #33506e; font-size: 1.08rem; line-height: 1.6; }
+        .intro-tarjeta ul { list-style: none; }
+        .intro-tarjeta li { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px dashed #cfdce8; color: #33506e; font-weight: 500; }
+        .intro-tarjeta li:last-child { border-bottom: none; }
+        .check {
+            flex: 0 0 28px; height: 28px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--aurora1), var(--aurora2));
+            color: var(--azul-profundo); display: inline-flex; align-items: center; justify-content: center; font-weight: 800; font-size: .9rem;
+        }
+        .cita {
+            background: linear-gradient(150deg, var(--azul-noche), #104a75); color: var(--blanco);
+            border-radius: 26px; padding: 40px; box-shadow: var(--sombra); text-align: center;
+        }
+        .cita p { font-size: clamp(1.2rem, 2.6vw, 1.7rem); font-weight: 600; color: var(--hielo); }
+
+        .intro-ejes {
+            background: #d0e4f5; color: #142d44;
+            border: 1px solid #a4c5e0; border-radius: 26px; padding: 28px 26px;
+            box-shadow: 0 6px 20px rgba(11,29,58,0.1);
+        }
+        .intro-ejes h4 { color: #0b2040; font-size: 1.2rem; letter-spacing: 1px; margin-bottom: 14px; font-weight: 800; }
+        .intro-ejes ul { list-style: none; display: grid; gap: 0; }
+        .intro-ejes li {
+            display: flex; align-items: center; gap: 12px; padding: 8px 0;
+            color: #142d44; font-weight: 600; font-size: .95rem; border-bottom: 1px dashed #8ab4d4;
+        }
+        .intro-ejes li:last-child { border-bottom: none; }
+        .num-eje {
+            flex: 0 0 30px; height: 30px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--aurora1), var(--aurora2));
+            color: var(--azul-profundo); font-weight: 800; font-size: .95rem;
+            display: inline-flex; align-items: center; justify-content: center;
+        }
+        .intro-cta { margin-top: 16px; color: #142d44; font-size: 1rem; line-height: 1.5; }
+        .intro-cta strong { color: #0b2040; }
+
+        /* ====== MAPHI ====== */
+        .maphi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start; }
+        .maphi-fotos { display: grid; gap: 16px; }
+        .maphi-fotos .foto { border-radius: 22px; overflow: hidden; box-shadow: var(--sombra); }
+        .maphi-fotos .foto img { height: 240px; }
+        .maphi-tarjeta { background: var(--blanco); border-radius: 26px; padding: 36px; box-shadow: var(--sombra); }
+        .maphi-tarjeta .etiqueta { margin-bottom: 14px; }
+        .maphi-tarjeta h3 { font-size: 1.6rem; margin-bottom: 12px; color: var(--azul); line-height: 1.2; }
+        .maphi-tarjeta p { margin-bottom: 14px; color: #33506e; line-height: 1.6; }
+        .maphi-tarjeta ul { list-style: none; margin: 6px 0 18px; }
+        .maphi-tarjeta li { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px dashed #cfdce8; color: #33506e; font-weight: 500; }
+        .maphi-tarjeta li:last-child { border-bottom: none; }
+        .maphi-tarjeta .ficha {
+            display: flex; flex-wrap: wrap; gap: 10px; padding-top: 6px; border-top: 2px solid #dbe6ef;
+        }
+        .maphi-tarjeta .ficha span {
+            background: linear-gradient(135deg, #e8f4fd, #dceefb); color: var(--azul-noche);
+            border-radius: 30px; padding: 6px 14px; font-size: .8rem; font-weight: 700;
+        }
+        @media (max-width: 780px) {
+            .maphi-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ====== PRESENTACIÓN DE LA ENTREVISTADA ====== */
+        .presentacion-grid { display: grid; grid-template-columns: 340px 1fr; gap: 30px; align-items: stretch; }
+        .tarjeta-retrato {
+            background: linear-gradient(150deg, var(--azul-noche), #104a75); color: var(--blanco);
+            border-radius: 26px; padding: 34px; text-align: center; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; gap: 16px; box-shadow: var(--sombra);
+        }
+        .tarjeta-retrato .avatar {
+            width: 150px; height: 150px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--aurora1), var(--aurora2));
+            color: var(--azul-profundo); font-weight: 800; font-size: 3rem;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3); border: 5px solid rgba(255,255,255,0.35);
+        }
+        .tarjeta-retrato h3 { font-size: 1.6rem; line-height: 1.2; }
+        .tarjeta-retrato .rol { color: var(--aurora1); font-weight: 700; font-size: .95rem; letter-spacing: 1px; }
+        .tarjeta-retrato .localizacion { color: var(--hielo); font-size: .9rem; }
+        .tarjeta-datos { background: var(--blanco); border-radius: 26px; padding: 34px; box-shadow: var(--sombra); }
+        .tarjeta-datos h4 { font-size: 1.2rem; color: var(--azul); margin-bottom: 18px; }
+        .lista-datos { list-style: none; display: grid; gap: 14px; }
+        .lista-datos li { display: flex; gap: 14px; align-items: flex-start; color: #35506e; line-height: 1.5; }
+        .lista-datos .ic {
+            flex: 0 0 38px; height: 38px; border-radius: 12px;
+            background: linear-gradient(135deg, #e8f4fd, #dceefb); color: var(--azul-noche);
+            display: inline-flex; align-items: center; justify-content: center; font-size: 1.1rem;
+        }
+        .lista-datos .txt strong { color: var(--azul-noche); }
+        .frase-entrevista {
+            margin-top: 24px; padding: 22px 26px; border-radius: 20px;
+            background: linear-gradient(135deg, var(--azul-noche), #104a75);
+            color: var(--hielo); font-size: 1.2rem; font-weight: 600; text-align: center; font-style: italic;
+        }
+        .frase-entrevista strong { color: var(--aurora1); }
+        .fuente-info {
+            margin-top: 18px; font-size: .85rem; color: #4a6b8a; line-height: 1.5;
+            padding-top: 14px; border-top: 1px dashed #cfdce8;
+        }
+        .fuente-info a { color: var(--azul); font-weight: 700; text-decoration: underline; }
+        @media (max-width: 780px) {
+            .presentacion-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ====== FORMULARIO: NOMBRE ====== */
+        .datos-alumno {
+            background: var(--blanco); border-radius: 26px; padding: 30px; box-shadow: var(--sombra); margin-bottom: 26px;
+        }
+        .datos-alumno h3 { font-size: 1.6rem; color: var(--azul); margin-bottom: 6px; }
+        .datos-alumno p { color: #4a6b8a; margin-bottom: 18px; font-size: 1.05rem; }
+        .campo-etiqueta { font-weight: 700; font-size: 1.02rem; letter-spacing: 1px; color: var(--azul-noche); margin-bottom: 8px; display: block; }
+
+        input[type="text"], textarea {
+            width: 100%; border: 2.5px solid #cfdce8; border-radius: 14px; padding: 15px 17px;
+            font-family: 'Quicksand', sans-serif; font-size: 1.12rem; color: var(--azul-profundo);
+            background: #f7fbfe; resize: vertical; transition: border-color .25s ease, box-shadow .25s ease, background .25s ease;
+        }
+        input[type="text"]:focus, textarea:focus {
+            outline: none; border-color: var(--azul); box-shadow: 0 0 0 4px rgba(30,111,194,0.15); background: var(--blanco);
+        }
+
+        /* ====== FORMULARIO: EJES (explicación arriba del campo) ====== */
+        .ejes-formulario { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+        .bloque-eje {
+            background: var(--blanco); border-radius: 22px; overflow: hidden; box-shadow: 0 10px 30px rgba(11,29,58,0.08);
+            display: flex; flex-direction: column; transition: transform .3s ease, box-shadow .3s ease;
+            border: 1px solid #e3eef7;
+        }
+        .bloque-eje:hover { transform: translateY(-4px); box-shadow: 0 18px 44px rgba(11,29,58,0.14); }
+        .bloque-eje:nth-child(1) .cabeza-eje { background: linear-gradient(135deg, #1a6b3c, #2ecc71); }
+        .bloque-eje:nth-child(2) .cabeza-eje { background: linear-gradient(135deg, #c0392b, #e74c3c); }
+        .bloque-eje:nth-child(3) .cabeza-eje { background: linear-gradient(135deg, #2980b9, #3498db); }
+        .bloque-eje:nth-child(4) .cabeza-eje { background: linear-gradient(135deg, #8e44ad, #9b59b6); }
+        .bloque-eje:nth-child(5) .cabeza-eje { background: linear-gradient(135deg, #d35400, #e67e22); }
+        .bloque-eje:nth-child(6) .cabeza-eje { background: linear-gradient(135deg, #16a085, #1abc9c); }
+        .bloque-eje:nth-child(7) .cabeza-eje { background: linear-gradient(135deg, #c0392b, #e91e63); }
+        .bloque-eje:nth-child(8) .cabeza-eje { background: linear-gradient(135deg, #2c3e50, #34495e); }
+
+        .bloque-eje .cabeza-eje {
+            color: var(--blanco); padding: 18px 20px; display: flex; align-items: center; gap: 14px;
+        }
+        .bloque-eje .num {
+            width: 48px; height: 48px; border-radius: 14px; flex: 0 0 48px;
+            background: rgba(255,255,255,0.25);
+            color: var(--blanco); font-weight: 800; font-size: 1.5rem;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .bloque-eje .cabeza-eje { padding: 20px 22px; }
+        .bloque-eje .cabeza-eje h3 { font-size: 1.35rem; color: var(--blanco); line-height: 1.25; }
+        .bloque-eje .explicacion { padding: 16px 22px 4px; color: #35506e; font-size: 1.04rem; line-height: 1.55; }
+        .bloque-eje .explicacion strong { color: var(--azul-noche); }
+        .bloque-eje .campo-area { padding: 0 22px 22px; display: flex; flex-direction: column; gap: 10px; margin-top: auto; }
+        .bloque-eje .campo-area label { font-weight: 800; font-size: .98rem; letter-spacing: 1px; color: var(--azul); text-transform: uppercase; }
+
+        .barra-enviar {
+            margin-top: 30px; background: var(--blanco); border-radius: 26px; padding: 28px 30px;
+            box-shadow: var(--sombra); text-align: center;
+        }
+        .barra-enviar p { color: #4a6b8a; margin-bottom: 18px; }
+        .btn-enviar { background: linear-gradient(135deg, var(--aurora1), var(--aurora2)); color: var(--azul-profundo); font-weight: 800; }
+
+        .nota {
+            margin-top: 22px; background: #fff4e5; border: 1px dashed #f0a93c; color: #8a6a1f;
+            border-radius: 16px; padding: 18px 22px; font-weight: 500; text-align: center;
+        }
+
+        /* ====== OVERLAY DE ÉXITO ====== */
+        .overlay-exito {
+            position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center;
+            text-align: center; padding: 30px; overflow: hidden;
+            background: linear-gradient(160deg, #081838 0%, #0d2b52 45%, #14507e 100%);
+        }
+        .overlay-exito .aurora-overlay {
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(60% 45% at 20% 80%, rgba(102,240,200,0.4), transparent 60%),
+                radial-gradient(55% 40% at 80% 75%, rgba(142,231,255,0.35), transparent 60%);
+            filter: blur(10px); animation: auroraMove 6s ease-in-out infinite alternate;
+        }
+        .overlay-exito .contenido { position: relative; max-width: 640px; animation: exitoSubir .6s ease forwards; }
+        @keyframes exitoSubir { 0% { transform: scale(.85); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        .overlay-exito .check-grande {
+            width: 110px; height: 110px; margin: 0 auto; border-radius: 50%;
+            background: linear-gradient(135deg, var(--aurora1), var(--aurora2));
+            display: flex; align-items: center; justify-content: center;
+            font-size: 3.4rem; color: var(--azul-profundo);
+            box-shadow: 0 16px 40px rgba(102,240,200,0.4);
+            animation: latido 1.2s ease-in-out infinite;
+        }
+        @keyframes latido { 0%,100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+        .overlay-exito h2 { color: var(--blanco); font-size: clamp(1.9rem, 5vw, 3rem); margin: 26px 0 12px; text-shadow: 0 4px 30px rgba(0,0,0,0.4); }
+        .overlay-exito p { color: var(--hielo); font-size: clamp(1.05rem, 2.3vw, 1.45rem); font-weight: 500; }
+        .overlay-exito .barra-carga { width: 100%; max-width: 360px; height: 6px; border-radius: 6px; background: rgba(255,255,255,0.2); margin: 28px auto 0; overflow: hidden; }
+        .overlay-exito .barra-carga span { display: block; height: 100%; background: linear-gradient(90deg, var(--aurora1), var(--aurora2)); transform-origin: left; animation: cargar 2.8s linear forwards; }
+        @keyframes cargar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+        /* ====== LIGHTBOX: AMPLIAR FOTOS ====== */
+        .foto { cursor: zoom-in; }
+        .lightbox {
+            display: none; position: fixed; inset: 0; z-index: 2000;
+            background: rgba(3,12,28,0.94); backdrop-filter: blur(6px);
+            align-items: center; justify-content: center; padding: 30px;
+        }
+        .lightbox.abierto { display: flex; }
+        .lightbox-figura {
+            max-width: min(1100px, 92vw); max-height: 88vh; margin: 0;
+            display: flex; flex-direction: column; align-items: center; gap: 14px;
+        }
+        .lightbox-figura img {
+            max-width: 100%; max-height: 78vh; border-radius: 14px;
+            box-shadow: 0 20px 70px rgba(0,0,0,0.6); object-fit: contain;
+            animation: lightboxEntra .35s ease forwards;
+        }
+        @keyframes lightboxEntra { from { transform: scale(.92); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .lightbox-figura figcaption { color: var(--hielo); font-size: 1rem; font-weight: 500; text-align: center; }
+        .lightbox-cerrar {
+            position: absolute; top: 22px; right: 26px; z-index: 2001;
+            width: 46px; height: 46px; border-radius: 50%; border: none; cursor: pointer;
+            background: linear-gradient(135deg, var(--aurora1), var(--aurora2));
+            color: #fff; font-size: 1.2rem; font-weight: 700; line-height: 1;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4); transition: transform .2s ease;
+        }
+        .lightbox-cerrar:hover { transform: scale(1.1); }
+
+        /* ====== WEBGRAFÍA ====== */
+        .link-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .link-tarjeta {
+            display: flex; align-items: center; gap: 18px; background: var(--blanco);
+            border-radius: 20px; padding: 22px; box-shadow: 0 8px 24px rgba(11,29,58,0.07);
+            text-decoration: none; transition: transform .3s ease, box-shadow .3s ease;
+        }
+        .link-tarjeta:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(11,29,58,0.14); }
+        .link-tarjeta .link-icono {
+            flex: 0 0 54px; height: 54px; border-radius: 16px;
+            background: linear-gradient(135deg, var(--celeste), var(--azul));
+            display: flex; align-items: center; justify-content: center; font-size: 1.6rem;
+        }
+        .link-tarjeta .link-texto h4 { color: var(--azul-profundo); font-size: 1.05rem; }
+        .link-tarjeta .link-texto p { color: #4a6b8a; font-size: .82rem; margin-top: 2px; }
+
+footer { text-align: center; padding: 46px 24px; background: var(--azul-profundo); color: var(--hielo); margin-top: 60px; position: relative; }
+footer .pinguino-footer {
+    width: 80px; height: 80px; object-fit: contain; margin-bottom: 16px;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+}
+footer h3 { color: var(--blanco); font-size: 1.5rem; margin-bottom: 10px; }
+footer .frase { color: var(--aurora1); font-weight: 600; margin-bottom: 6px; }
+        footer .peque { opacity: .7; font-size: .85rem; }
+
+        .pinguino-hero {
+            position: absolute; right: 40px; bottom: 30px; width: 200px; height: auto;
+            filter: drop-shadow(0 6px 16px rgba(0,0,0,0.35));
+            animation: flotar 3s ease-in-out infinite;
+        }
+        @keyframes flotar {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @media (max-width: 768px) {
+            .pinguino-hero { width: 130px; right: 16px; bottom: 16px; }
+        }
+
+        @media (max-width: 780px) {
+            .intro-grid, .link-grid, .ejes-formulario, .wrapper-fotos-mapa, .datos-clave { grid-template-columns: 1fr; }
+            .datos-clave { grid-template-columns: repeat(2, 1fr); }
+            .seccion { padding: 60px 18px; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav-bar">
+    <div class="nav-logo">❄️ Base <span>Esperanza</span> · Entrevista</div>
+    <div class="nav-links">
+        <a href="#base">La Base</a>
+        <a href="#entrevistada">La científica</a>
+        <a href="#maphi">MAPHI</a>
+        <a href="#participar">Participá</a>
+        <a href="#webgrafia">Webgrafía</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="aurora"></div>
+    <div class="stars"></div>
+    <div class="badge">
+        <img src="https://yt3.googleusercontent.com/yH3__TuP4oDzQTLqG7KpVEJlNV9dgmfngNxrxJ0qLf1OwLYyve4kg4PBdj_V6zgAcBwdK9Z99A=s160-c-k-c0x00ffffff-no-rj" alt="Logo de la Radio del Rural">
+        <span>RADIO DEL RURAL · TALLER DE CIENCIA Y TECNOLOGÍA</span>
+    </div>
+    <h1 class="titulo-entrevista">Del Rural <span>a la Antártida</span>:<br>una experiencia de Ciencia y Tecnología</h1>
+    <p class="sub">Te invitamos a pensar preguntas para entrevistar a <strong>Mara Schmid</strong>, bióloga argentina que trabaja en la <strong>Base Esperanza</strong>, en la Antártida. ¿Qué le preguntarías sobre su trabajo, la vida en el continente antártico y la producción de alimentos en ambientes controlados?</p>
+    <div class="accion">
+        <a href="#participar" class="btn btn-primario">📝 Escribir mis preguntas</a>
+        <a href="#base" class="btn btn-secundario">🗺️ Conocer la Base</a>
+    </div>
+    <img src="https://i.imgur.com/toqis5T.png" alt="Pingüino" class="pinguino-hero">
+
+    <!-- TEMPERATURA EN TIEMPO REAL -->
+    <div class="temperatura" id="tempCard">
+        <div class="temp-icono">🌡️</div>
+        <div class="temp-info">
+            <div class="lugar">BASE ESPERANZA · AHORA</div>
+            <div class="valor" id="tempValor">-- °C</div>
+            <div class="detalle" id="tempDetalle">Consultando el clima de la Antártida...</div>
+        </div>
+    </div>
+
+    <div class="scroll-hint">▼ DESLIZÁ PARA EXPLORAR</div>
+</section>
+
+<!-- INTRO: LA IDEA DE LA ENTREVISTA -->
+<section class="seccion" id="intro">
+    <div class="intro-grid">
+        <div class="intro-tarjeta aparece">
+            <span class="etiqueta">¿DE QUÉ SE TRATA?</span>
+            <h3>Una entrevista desde la Radio del Rural</h3>
+            <p><strong>"Del Rural a la Antártida: una experiencia de Ciencia y Tecnología"</strong> es la entrevista que realizará la Radio del Rural, en el Taller de Educación Científica y Tecnológica, a <strong>Mara Schmid</strong>, bióloga que trabaja en la <strong>Base Esperanza</strong>, en la Antártida Argentina.</p>
+            <p>Para que la entrevista esté bien organizada, la dividimos en <strong>varios ejes temáticos</strong> relacionados con la ciencia y la tecnología. Cada eje te propone un tema para pensar y escribir tus preguntas.</p>
+        </div>
+        <div class="intro-ejes aparece">
+            <h4>Los ejes que proponemos para la entrevista</h4>
+            <ul>
+                <li><span class="num-eje">1</span> El camino de una científica</li>
+                <li><span class="num-eje">2</span> Producir alimentos en la Antártida</li>
+                <li><span class="num-eje">3</span> Crear condiciones para la vida</li>
+                <li><span class="num-eje">4</span> Vivir, trabajar e investigar en la Antártida</li>
+                <li><span class="num-eje">5</span> Ciencia y cuidado del ambiente</li>
+                <li><span class="num-eje">6</span> Qué podemos aprender de la Antártida</li>
+                <li><span class="num-eje">7</span> Mujeres que hacen ciencia</li>
+                <li><span class="num-eje">8</span> Cómo es el turismo en la Antártida</li>
+            </ul>
+            <p class="intro-cta">En el recorrido vas a conocer el lugar y a Mara. Al final, podés <strong>escribir tus preguntas</strong> en cada eje. 👇</p>
+        </div>
+    </div>
+</section>
+
+<!-- CONOCER LA BASE ESPERANZA -->
+<section class="seccion" id="base">
+    <div class="encabezado-seccion aparece">
+        <span class="etiqueta">DESTINO: ANTÁRTIDA ARGENTINA</span>
+        <h2>La Base Esperanza 🏔️</h2>
+        <p>Donde trabaja Mara Schmid. Conocé el lugar, su ubicación y las condiciones extremas en las que se vive e investiga.</p>
+    </div>
+
+    <figure class="banner-base aparece">
+        <img src="https://realpolitik.com.ar/uploads/noticias/1/2026/05/20260507193132_1774190197440.webp" alt="Vista panorámica de la Base Esperanza en la Antártida" loading="lazy">
+        <figcaption>La Base Esperanza, en la Península Antártica</figcaption>
+    </figure>
+
+    <div class="wrapper-fotos-mapa aparece">
+        <div class="panel panel-fotos">
+            <div class="galeria">
+                <figure class="foto">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Base_Esperanza.jpg" alt="Base Esperanza vista general" loading="lazy">
+                    <figcaption>Vista de la Base Esperanza</figcaption>
+                </figure>
+                <figure class="foto">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Base_Esperanza%2C_Ant%C3%A1rtida_Argentina.jpg" alt="Base Esperanza, Antártida Argentina" loading="lazy">
+                    <figcaption>Entre montañas y hielo</figcaption>
+                </figure>
+                <figure class="foto">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Base_Esperanza_-_Ant%C3%A1rtida_Argentina.jpg" alt="Base Esperanza, Antártida Argentina" loading="lazy">
+                    <figcaption>El refugio antártico</figcaption>
+                </figure>
+                <figure class="foto">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Base_Esperanza_-_cartel.jpg" alt="Cartel de la Base Esperanza" loading="lazy">
+                    <figcaption>El cartel de entrada a la base</figcaption>
+                </figure>
+            </div>
+            <div class="panel-fotos-titulo">
+                <h3>📍 Ubicación</h3>
+                <p>La <strong>Base Esperanza</strong> es una base antártica argentina permanente en la Península Antártica. Es una de las pocas bases del continente con población civil que vive todo el año.</p>
+            </div>
+        </div>
+        <div class="panel mapa">
+            <div class="mapa-titulo">
+                <h3>🗺️ ¿Dónde está?</h3>
+                <p>La Base Esperanza está en el extremo noreste de la Península Antártica, en la costa de la Bahía Esperanza. Coordenadas: 63°24′S · 56°59′O</p>
+            </div>
+            <iframe
+                src="https://maps.google.com/maps?q=-63.397,-56.998&z=6&output=embed"
+                title="Mapa de la Base Esperanza"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+
+    <div class="datos-clave aparece">
+        <div class="dato"><div class="dato-numero">63°S</div><div class="dato-label">Latitud sur</div></div>
+        <div class="dato"><div class="dato-numero" id="datoTemp">--°C</div><div class="dato-label">Temp. actual</div></div>
+        <div class="dato"><div class="dato-numero">Permanente</div><div class="dato-label">Base habitada todo el año</div></div>
+        <div class="dato"><div class="dato-numero">1952</div><div class="dato-label">Fundación</div></div>
+    </div>
+</section>
+
+<!-- PRESENTACIÓN DE LA ENTREVISTADA -->
+<section class="seccion" id="entrevistada">
+    <div class="encabezado-seccion aparece">
+        <span class="etiqueta">LA ENTREVISTADA</span>
+        <h2>Mara Schmid 👩‍🔬</h2>
+        <p>Licenciada en Biología y científica en la Antártida Argentina. Conocé quién es y qué hace en la Base Esperanza antes de escribirle tus preguntas.</p>
+    </div>
+
+    <div class="presentacion-grid aparece">
+        <div class="tarjeta-retrato">
+            <div class="avatar">MS</div>
+            <h3>Mara Schmid</h3>
+            <div class="rol">LICENCIADA EN BIOLOGÍA</div>
+            <div class="localizacion">📍 Base Esperanza · Antártida Argentina</div>
+        </div>
+
+        <div class="tarjeta-datos">
+            <h4>Su recorrido</h4>
+            <ul class="lista-datos">
+                <li><span class="ic">🎓</span><span class="txt">Estudió <strong>Licenciatura en Biología</strong> en la Facultad de Ciencias Naturales y Museo de la <strong>Universidad Nacional de La Plata</strong>.</span></li>
+                <li><span class="ic">🐧</span><span class="txt">Trabajó con el <strong>Instituto Antártico Argentino</strong> en el grupo de <strong>Monitoreo del Ecosistema Pingüinos</strong>, haciendo relevamientos de la colonia de pingüinos Adelia (campañas 2013 y 2014).</span></li>
+                <li><span class="ic">🥬</span><span class="txt">En la Base Esperanza es <strong>encargada del Módulo Antártico de Producción Hidropónica (MAPHI)</strong>, que cultiva verduras frescas todo el año.</span></li>
+                <li><span class="ic">📻</span><span class="txt">También trabaja en <strong>LRA36 Radio Arcángel San Gabriel</strong>, la radio de la base.</span></li>
+            </ul>
+            <div class="frase-entrevista">
+                "La Antártida es un nuevo amor. <strong>Una vez que pasás por la Antártida, te quedás arraigado a ella</strong>."
+            </div>
+            <p class="fuente-info">Fuente: <a href="https://realpolitik.com.ar/nota/72177/argentina-es-uno-de-los-paises-con-mas-ciencia-antartica-del-mundo/" target="_blank" rel="noopener">"Argentina es uno de los países con más ciencia antártica del mundo"</a>, Agencia Realpolitik (entrevista a Mara Schmid).</p>
+        </div>
+    </div>
+</section>
+
+<!-- SECCIÓN MAPHI -->
+<section class="seccion" id="maphi">
+    <div class="encabezado-seccion aparece">
+        <span class="etiqueta">¿CÓMO SE PRODUCEN ALIMENTOS EN LA ANTÁRTIDA?</span>
+        <h2>MAPHI: un jardín en medio del hielo 🥬</h2>
+        <p>El <strong>MAPHI</strong> (Módulo Antártico de Producción Hidropónica) es un proyecto del <strong>INTA</strong> que permite cultivar verduras frescas dentro de la Base Esperanza, incluso en el invierno polar.</p>
+    </div>
+
+    <div class="maphi-grid">
+        <div class="maphi-fotos aparece">
+            <figure class="foto">
+                <img src="https://www.marambio.aq/images/hidroponiaesperanza1.jpg" alt="Módulo Antártico de Producción Hidropónica (MAPHI) en la Base Esperanza" loading="lazy">
+                <figcaption>MAPHI: verduras frescas dentro de la base</figcaption>
+            </figure>
+            <figure class="foto">
+                <img src="https://www.marambio.aq/images/hidroponiaesperanza2.jpg" alt="Sistema hidropónico indoor del MAPHI" loading="lazy">
+                <figcaption>Sistema hidropónico, sin suelo y bajo techo</figcaption>
+            </figure>
+        </div>
+
+        <div class="maphi-tarjeta aparece">
+            <h3>¿Qué es la hidroponía? 💧</h3>
+            <p>Es una técnica para cultivar plantas <strong>sin suelo</strong>. Las raíces crecen en contacto con una <strong>solución nutritiva</strong> (agua con minerales disueltos), en un espacio cerrado donde se controla la <strong>luz, la temperatura y la humedad</strong>.</p>
+            <p>Como el módulo es <strong>indoor</strong> (dentro de la base) y el ambiente se regula en tiempo real, se puede producir durante <strong>todo el año</strong>, sin importar el frío o el viento del exterior.</p>
+            <ul>
+                <li><span class="check">✓</span> Lechuga, perejil, rúcula, albahaca y acelga</li>
+                <li><span class="check">✓</span> Sin suelo: las raíces en una solución nutritiva</li>
+                <li><span class="check">✓</span> Verduras frescas, más sanas que las enlatadas</li>
+                <li><span class="check">✓</span> Proyecto del INTA junto a otras instituciones</li>
+            </ul>
+            <p style="margin-top:16px; margin-bottom:0;">Hacé clic en las fotos para agrandarlas. 👆</p>
+        </div>
+    </div>
+</section>
+
+<!-- FORMULARIO PROPIO -->
+<section class="seccion" id="participar">
+    <div class="encabezado-seccion aparece">
+        <span class="etiqueta">PARTICIPÁ</span>
+        <h2>¿Qué le preguntarías a Mara? ✍️</h2>
+        <p>Acá están los ejes que viste en la introducción. Para cada uno, leé la explicación del tema y escribí tu pregunta. Podés completar uno o varios, en el orden que prefieras; todas las preguntas llegarán a la científica.</p>
+    </div>
+
+    <!-- Datos del alumno -->
+    <div class="datos-alumno aparece">
+        <h3>🙋 Sobre vos</h3>
+        <p>Contanos quién sos para identificar tus preguntas.</p>
+        <label class="campo-etiqueta" for="nombre">NOMBRE Y APELLIDO</label>
+        <input type="text" id="nombre" placeholder="Escribí tu nombre y apellido..." autocomplete="name">
+    </div>
+
+    <!-- Formulario de ejes: explicación arriba del campo -->
+    <div class="ejes-formulario">
+
+        <div class="bloque-eje aparece">
+            <div class="cabeza-eje"><div class="num">1</div><h3>El camino de una científica</h3></div>
+            <div class="explicacion">
+                <strong>📖 Sobre este tema:</strong> Conocer cómo <strong>Mara</strong> llegó a ser científica: su formación, su vocación, su estudio y las experiencias que la llevaron a trabajar en la Antártida.
+            </div>
+            <div class="campo-area">
+                <label for="eje1">Tu pregunta</label>
+                <textarea id="eje1" rows="2" placeholder="Ej: ¿Cómo empezó tu interés por la ciencia?..."></textarea>
+            </div>
+        </div>
+
+        <div class="bloque-eje aparece">
+            <div class="cabeza-eje"><div class="num">2</div><h3>Producir alimentos en la Antártida</h3></div>
+            <div class="explicacion">
+                <strong>📖 Sobre este tema:</strong> Las dificultades de obtener y producir alimentos en un lugar tan frío y aislado, y el papel de la <strong>hidroponía</strong> (cultivo sin suelo).
+            </div>
+            <div class="campo-area">
+                <label for="eje2">Tu pregunta</label>
+                <textarea id="eje2" rows="2" placeholder="Ej: ¿Qué alimentos cultivan y cómo?..."></textarea>
+            </div>
+        </div>
+
+        <div class="bloque-eje aparece">
+            <div class="cabeza-eje"><div class="num">3</div><h3>Crear condiciones para la vida</h3></div>
+            <div class="explicacion">
+                <strong>📖 Sobre este tema:</strong> Cómo se logra que algo crezca en la Antártida: temperatura, luz, agua y nutrientes controlados, con <strong>tecnología, monitoreo y automatización</strong>.
+            </div>
+            <div class="campo-area">
+                <label for="eje3">Tu pregunta</label>
+                <textarea id="eje3" rows="2" placeholder="Ej: ¿Cómo controlan la temperatura dentro del invernadero?..."></textarea>
+            </div>
+        </div>
+
+        <div class="bloque-eje aparece">
+            <div class="cabeza-eje"><div class="num">4</div><h3>Vivir, trabajar e investigar en la Antártida</h3></div>
+            <div class="explicacion">
+                <strong>📖 Sobre este tema:</strong> La vida cotidiana en la Base Esperanza: cómo es un día normal, qué hacen, cómo se organizan y qué se siente vivir tan lejos y aislados.
+            </div>
+            <div class="campo-area">
+                <label for="eje4">Tu pregunta</label>
+                <textarea id="eje4" rows="2" placeholder="Ej: ¿Cómo es tu rutina diaria en la base?..."></textarea>
+            </div>
+        </div>
+
+        <div class="bloque-eje aparece">
+            <div class="cabeza-eje"><div class="num">5</div><h3>La ciencia y el cuidado de la Antártida</h3></div>
+            <div class="explicacion">
+                <strong>📖 Sobre este tema:</strong> Las medidas de <strong>bioseguridad</strong> y el cuidado del ambiente antártico: manejo del agua, los materiales y los residuos para no dañar un lugar tan especial.
+            </div>
+            <div class="campo-area">
+                <label for="eje5">Tu pregunta</label>
+                <textarea id="eje5" rows="2" placeholder="Ej: ¿Qué hacen con los residuos de la base?..."></textarea>
+            </div>
+        </div>
+
+        <div class="bloque-eje aparece">
+            <div class="cabeza-eje"><div class="num">6</div><h3>¿Qué podemos aprender de la Antártida?</h3></div>
+            <div class="explicacion">
+                <strong>📖 Sobre este tema:</strong> Qué <strong>conocimientos y tecnologías</strong> desarrolladas allí podrían servir en lugares con dificultades para producir alimentos frescos, como comunidades aisladas.
+            </div>
+            <div class="campo-area">
+                <label for="eje6">Tu pregunta</label>
+                <textarea id="eje6" rows="2" placeholder="Ej: ¿Podría usarse la hidroponía en otros lugares?..."></textarea>
+            </div>
+        </div>
+
+        <div class="bloque-eje aparece">
+            <div class="cabeza-eje"><div class="num">7</div><h3>Mujeres que hacen ciencia</h3></div>
+            <div class="explicacion">
+                <strong>📖 Sobre este tema:</strong> Reflexionar sobre la historia de <strong>Mara como mujer científica</strong>: sus vivencias, logros y los desafíos de las mujeres en la ciencia y en la Antártida.
+            </div>
+            <div class="campo-area">
+                <label for="eje7">Tu pregunta</label>
+                <textarea id="eje7" rows="2" placeholder="Ej: ¿Qué se siente ser mujer científica en la Antártida?..."></textarea>
+            </div>
+        </div>
+
+        <div class="bloque-eje aparece">
+            <div class="cabeza-eje"><div class="num">8</div><h3>¿Cómo es el turismo en la Antártida?</h3></div>
+            <div class="explicacion">
+                <strong>📖 Sobre este tema:</strong> Como se visitan lugares tan remotos, quiénes viajan y qué cuidado especial se necesita para no alterar este ambiente increíble.
+            </div>
+            <div class="campo-area">
+                <label for="eje8">Tu pregunta</label>
+                <textarea id="eje8" rows="2" placeholder="Ej: ¿Puede viajar cualquiera a la Antártida?..."></textarea>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Barra de envío -->
+    <div class="barra-enviar aparece">
+        <p>Revisá tus preguntas y, cuando estés listo/a, enviá tus preguntas para la científica. 🚀</p>
+        <button class="btn btn-enviar" onclick="enviarPreguntas()">🚀 Enviar mis preguntas</button>
+    </div>
+
+</section>
+
+<!-- WEBGRAFÍA -->
+<section class="seccion" id="webgrafia">
+    <div class="encabezado-seccion aparece">
+        <span class="etiqueta">PARA SEGUIR APRENDIENDO</span>
+        <h2>Webgrafía 📚</h2>
+    </div>
+    <div class="link-grid">
+        <a class="link-tarjeta aparece" href="https://www.argentina.gob.ar/inta/tecnologias/modulo-antartico-de-produccion-hidroponica-maphi" target="_blank" rel="noopener">
+            <div class="link-icono">🌿</div>
+            <div class="link-texto">
+                <h4>Módulo Antártico de Producción Hidropónica (MAPHI)</h4>
+                <p>INTA · Argentina.gob.ar</p>
+            </div>
+        </a>
+        <a class="link-tarjeta aparece" href="https://publicaciones.unpa.edu.ar/index.php/ICTUNPA/es/article/view/993/1028" target="_blank" rel="noopener">
+            <div class="link-icono">🔬</div>
+            <div class="link-texto">
+                <h4>Producción hidropónica en ambientes controlados</h4>
+                <p>ICT · UNPA</p>
+            </div>
+        </a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <h3>❄️ ¡Gracias por participar!</h3>
+    <p class="peque">Taller de Educación Científica y Tecnológica · Entrevista a Mara Schmid · Base Esperanza · Radio del Rural</p>
+</footer>
+
+<!-- Formulario oculto para envío directo a Google Forms -->
+<form id="formOculto" method="POST"
+      action="https://docs.google.com/forms/d/e/1FAIpQLSch9hq-Zg6tAG3A-n7KGTKTpCICVk_6CEaBETrCbK30cwyqwQ/formResponse"
+      style="display:none;">
+    <input type="hidden" name="entry.17985772" id="hEje1">
+    <input type="hidden" name="entry.1294131048" id="hEje2">
+    <input type="hidden" name="entry.632464835" id="hEje3">
+    <input type="hidden" name="entry.1477575154" id="hEje4">
+    <input type="hidden" name="entry.2025458" id="hEje5">
+    <input type="hidden" name="entry.339286685" id="hEje6">
+    <input type="hidden" name="entry.1964750144" id="hEje7">
+    <input type="hidden" name="entry.1457088626" id="hEje8">
+    <input type="hidden" name="fvv" value="1">
+    <input type="hidden" name="pageHistory" value="0">
+</form>
+
+<!-- OVERLAY DE ÉXITO (pantalla completa) -->
+<div class="overlay-exito" id="overlayExito">
+    <div class="aurora-overlay"></div>
+    <div class="contenido">
+        <div class="check-grande">✅</div>
+        <h2>¡Preguntas enviadas!</h2>
+        <p>Tus preguntas llegaron bien. ¡Escuchá la entrevista por la Radio del Rural! 📻</p>
+        <div class="barra-carga"><span></span></div>
+    </div>
+</div>
+
+<!-- LIGHTBOX: AMPLIAR IMAGEN -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-cerrar" id="lightboxCerrar" aria-label="Cerrar">✕</button>
+    <figure class="lightbox-figura">
+        <img id="lightboxImg" src="" alt="">
+        <figcaption id="lightboxPie"></figcaption>
+    </figure>
+</div>
+
+<script>
+    // NIEVE
+    (function crearNieve() {
+        const hero = document.querySelector('.hero');
+        for (let i = 0; i < 30; i++) {
+            const copo = document.createElement('div');
+            copo.className = 'nieve';
+            copo.textContent = '❄';
+            copo.style.left = Math.random() * 100 + '%';
+            copo.style.fontSize = (Math.random() * 1.2 + 0.5) + 'em';
+            copo.style.opacity = (Math.random() * 0.6 + 0.2);
+            copo.style.animationDuration = (Math.random() * 8 + 6) + 's';
+            copo.style.animationDelay = (Math.random() * 8) + 's';
+            hero.appendChild(copo);
+        }
+    })();
+
+    // APARICIÓN AL HACER SCROLL
+    const observador = new IntersectionObserver((entradas) => {
+        entradas.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.aparece').forEach(el => observador.observe(el));
+
+    // TEMPERATURA EN TIEMPO REAL - BASE ESPERANZA
+    const TEMP_URL = 'https://api.open-meteo.com/v1/forecast?latitude=-63.397&longitude=-56.998&current_weather=true&timezone=auto';
+    const codigoClima = {
+        0: ['☀️','Cielo despejado'], 1: ['🌤️','Mayormente despejado'], 2: ['⛅','Parcialmente nublado'],
+        3: ['☁️','Nublado'], 45: ['🌫️','Niebla'], 48: ['🌫️','Niebla con escarcha'],
+        51: ['🌦️','Llovizna ligera'], 53: ['🌦️','Llovizna'], 55: ['🌧️','Llovizna intensa'],
+        61: ['🌧️','Lluvia ligera'], 63: ['🌧️','Lluvia'], 65: ['🌧️','Lluvia fuerte'],
+        71: ['🌨️','Nevada ligera'], 73: ['🌨️','Nieve'], 75: ['❄️','Nevada fuerte'],
+        77: ['🌨️','Granos de nieve'], 80: ['🌦️','Chubascos'], 81: ['🌧️','Chubascos'], 82: ['⛈️','Chubascos fuertes'],
+        85: ['🌨️','Chubascos de nieve'], 86: ['🌨️','Chubascos de nieve fuertes'],
+        95: ['⛈️','Tormenta'], 96: ['⛈️','Tormenta con granizo'], 99: ['⛈️','Tormenta con granizo fuerte']
+    };
+    const nombresMes = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+
+    async function cargarTemperatura() {
+        try {
+            const r = await fetch(TEMP_URL);
+            const datos = await r.json();
+            const cw = datos.current_weather;
+            const temp = Math.round(cw.temperature);
+            const viento = Math.round(cw.windspeed);
+            const clima = codigoClima[cw.weathercode] || ['🌡️','Clima polar'];
+            const fecha = new Date(cw.time);
+
+            document.getElementById('tempValor').textContent = temp + ' °C';
+            document.getElementById('datoTemp').textContent = temp + '°C';
+            document.getElementById('tempDetalle').innerHTML =
+                clima[0] + ' ' + clima[1] + ' · Viento ' + viento + ' km/h · ' +
+                nombresMes[fecha.getMonth()] + ' ' + fecha.getDate();
+        } catch (e) {
+            document.getElementById('tempValor').textContent = '-- °C';
+            document.getElementById('tempDetalle').textContent = 'No se pudo consultar el clima ahora.';
+        }
+    }
+    cargarTemperatura();
+    setInterval(cargarTemperatura, 120000);
+
+    // ENVÍO DIRECTO A GOOGLE FORMS (en segundo plano, sin salir del sitio)
+    function enviarPreguntas() {
+        const pares = [
+            ['eje1','entry.17985772'],
+            ['eje2','entry.1294131048'],
+            ['eje3','entry.632464835'],
+            ['eje4','entry.1477575154'],
+            ['eje5','entry.2025458'],
+            ['eje6','entry.339286685'],
+            ['eje7','entry.1964750144'],
+            ['eje8','entry.1457088626']
+        ];
+
+        const nombre = (document.getElementById('nombre').value || '').trim();
+        if (nombre === '') {
+            alert('Escribí tu nombre y apellido para poder enviar.');
+            return;
+        }
+
+        let lleno = false;
+        let cuerpo = 'entry.554190483=' + encodeURIComponent(nombre) + '&';
+        pares.forEach(([cid, entryName]) => {
+            const val = (document.getElementById(cid).value || '').trim();
+            if (val !== '') {
+                lleno = true;
+                cuerpo += entryName + '=' + encodeURIComponent(val) + '&';
+            }
+        });
+
+        if (!lleno) {
+            alert('Escribí al menos una pregunta para poder enviarla.');
+            return;
+        }
+
+        cuerpo += 'fvv=1&pageHistory=0';
+
+        const url = 'https://docs.google.com/forms/d/e/1FAIpQLSch9hq-Zg6tAG3A-n7KGTKTpCICVk_6CEaBETrCbK30cwyqwQ/formResponse';
+
+        fetch(url, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: cuerpo
+        }).catch(() => {});
+
+        // Limpiar el formulario del sitio
+        document.getElementById('nombre').value = '';
+        pares.forEach(([cid]) => { document.getElementById(cid).value = ''; });
+
+        // Mostrar overlay a pantalla completa durante ~3 segundos
+        const overlay = document.getElementById('overlayExito');
+        overlay.style.display = 'flex';
+        setTimeout(() => {
+            overlay.style.display = 'none';
+        }, 3200);
+    }
+
+    // AMPLIAR Y CERRAR FOTOS (LIGHTBOX)
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxPie = document.getElementById('lightboxPie');
+    const lightboxCerrar = document.getElementById('lightboxCerrar');
+
+    document.querySelectorAll('.foto, .banner-base').forEach((foto) => {
+        foto.addEventListener('click', () => {
+            const img = foto.querySelector('img');
+            const pie = foto.querySelector('figcaption');
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightboxPie.textContent = pie ? pie.textContent : img.alt;
+            lightbox.classList.add('abierto');
+            lightbox.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    function cerrarLightbox() {
+        lightbox.classList.remove('abierto');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+    lightboxCerrar.addEventListener('click', cerrarLightbox);
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) cerrarLightbox(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') cerrarLightbox(); });
+</script>
+
+</body>
+</html>
